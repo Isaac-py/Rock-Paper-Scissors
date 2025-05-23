@@ -34,9 +34,19 @@ function playRound(humanChoice, computerChoice){
         return 'Draw!'
     }
 }
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound(humanSelection, computerSelection));
-console.log('Score: You: '+ humanScore + ' - Computer: ' + computerScore);
+function playGame(){
+    for(let i=1; i<6; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log('Round '+i);
+        console.log(playRound(humanSelection, computerSelection));
+        console.log('Score: You: '+ humanScore + ' - Computer: ' + computerScore);
+    }
+    console.log('Final score: You: '+ humanScore + ' - Computer: ' + computerScore);
+    if(humanScore>computerScore){
+        console.log('Congratulations!');
+    }else{
+        console.log("It's okay. Try one more time");
+    }
+}
+playGame();
