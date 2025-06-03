@@ -15,18 +15,18 @@ function playRound(humanChoice, computerChoice){
     if(humanChoice==0 && computerChoice==1){
         humanScore+=1; 
         return 'You win! Scissors beat Paper';
-    }else if(humanChoice==0 && computerChoice==2){
-        computerScore+=1;
-        return 'You lose! Rock beats Scissors';
-    }else if(humanChoice==1 && computerChoice==0){
-        computerScore+=1;
-        return 'You lose! Scissors beat Paper';
     }else if(humanChoice==2 && computerChoice==0){
         humanScore+=1;
         return 'You win! Rock beats Scissors';
     }else if(humanChoice==1 && computerChoice==2){
         humanScore+=1;
         return 'You win! Paper beats Rock';
+    }else if(humanChoice==0 && computerChoice==2){
+        computerScore+=1;
+        return 'You lose! Rock beats Scissors';
+    }else if(humanChoice==1 && computerChoice==0){
+        computerScore+=1;
+        return 'You lose! Scissors beat Paper';
     }else if(humanChoice==2 && computerChoice==1){
         computerScore+=1;
         return 'You lose! Paper beats Rock';
