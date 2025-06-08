@@ -4,7 +4,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    let choice = parseInt(prompt("Please enter the number corresponding to your choice: scissors - 0; paper - 1; rock - 2 : "));
+    let choice = parseInt();
     return choice;
 }
 
@@ -34,19 +34,52 @@ function playRound(humanChoice, computerChoice){
         return 'Draw!'
     }
 }
-function playGame(){
-    for(let i=1; i<6; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log('Round '+i);
-        console.log(playRound(humanSelection, computerSelection));
-        console.log('Score: You: '+ humanScore + ' - Computer: ' + computerScore);
+
+const results = document.querySelector(".results");
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', ()=> {
+    const humanSelection = 2;
+    const computerSelection = getComputerChoice();
+    result = playRound(humanSelection, computerSelection);
+    results.textContent = result + '\nScore: You: '+ humanScore + ' - Computer: ' + computerScore
+    if(humanScore===5 || computerScore===5){
+        results.textContent += '\nFinal score: You: ' + humanScore + ' - Computer: ' + computerScore;
+            if(humanScore>computerScore){
+                results.textContent ='Congratulations!';
+            }else{
+                results.textContent ="It's okay. Try one more time";
+            }
     }
-    console.log('Final score: You: '+ humanScore + ' - Computer: ' + computerScore);
-    if(humanScore>computerScore){
-        console.log('Congratulations!');
-    }else{
-        console.log("It's okay. Try one more time");
+});
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', ()=> {
+    const humanSelection = 1;
+    const computerSelection = getComputerChoice();
+    result = playRound(humanSelection, computerSelection);
+    results.textContent = result + '\nScore: You: '+ humanScore + ' - Computer: ' + computerScore
+    if(humanScore===5 || computerScore===5){
+        results.textContent += '\nFinal score: You: ' + humanScore + ' - Computer: ' + computerScore;
+            if(humanScore>computerScore){
+                results.textContent ='Congratulations!';
+            }else{
+                results.textContent ="It's okay. Try one more time";
+            }
     }
-}
-playGame();
+});
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', ()=> {
+    const humanSelection = 0;
+    const computerSelection = getComputerChoice();
+    result = playRound(humanSelection, computerSelection);
+    results.textContent = result + '\nScore: You: '+ humanScore + ' - Computer: ' + computerScore
+    if(humanScore===5 || computerScore===5){
+        results.textContent += '\nFinal score: You: ' + humanScore + ' - Computer: ' + computerScore;
+            if(humanScore>computerScore){
+                results.textContent ='Congratulations!';
+            }else{
+                results.textContent ="It's okay. Try one more time";
+            }
+    }
+});
+
